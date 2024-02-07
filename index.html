@@ -8,12 +8,11 @@
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
     <style>
     body {
-        font-family: 'Lexend';font-size: 22px;
-    }
-</style>
+         font-family: 'Lexend';font-size: 22px;
+     }
+    </style>
 </head>
 <body>
-
     <div class="game-container">
         <div class="difficulty-buttons">
             <button id="basic" class="difficulty-button" onclick="setDifficulty('Basic')">Easy</button>
@@ -24,7 +23,6 @@
         <div id="level" class="level-display">Level 1: Make 1</div>
         <div id="challenge" class="level-display">Target Number</div>
         <div id="expression" class="input-display"></div>
-        <div class="buttons-container">
             <div class="number-buttons">
                 <button class="button number" onclick="appendToExpression('1')">1</button>
                 <button class="button number" onclick="appendToExpression('2')">2</button>
@@ -36,7 +34,7 @@
                 <button class="button number" onclick="appendToExpression('8')">8</button>
                 <button class="button number" onclick="appendToExpression('9')">9</button>
             </div>
-            <div class="operator-buttons">
+        <div class="operator-buttons">
                 <button class="button operator" onclick="appendToExpression('(')">(</button>
                 <button class="button operator" onclick="appendToExpression(')')">)</button>
                 <button class="button operator" onclick="appendToExpression('+')">+</button>
@@ -44,13 +42,12 @@
                 <button class="button operator" onclick="appendToExpression('*')">×</button>
                 <button class="button operator" onclick="appendToExpression('/')">÷</button>
                 <button class="button operator" onclick="appendToExpression('^')">^</button>
-            </div>
+        </div>
             <button class="button backspace" onclick="deleteLastDigit()">Delete</button>
             <button class="button clear-button" onclick="clearExpression()">Clear</button>
             <button class="button submit-button" onclick="checkAnswer()">Submit</button>
         </div>
         <div id="result" class="result-display"></div>
-    </div>
     <script src="game.js"></script>
 </body>
 </html>
