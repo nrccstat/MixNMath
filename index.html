@@ -20,8 +20,10 @@
             <button id="hard" class="difficulty-button" onclick="setDifficulty('Hard')">Hard</button>
         </div>
         <h1 class="title">MixNMath!</h1>
-        <div id="level" class="level-display">Level 1: Make 1</div>
-        <div id="challenge" class="level-display">Target Number</div>
+        <div class="level-display">
+            <div id="level" class="level-display">Level 1: Make 1</div>
+            <div id="challenge" class="level-display">Target Number</div>
+        </div>
         <div id="expression" class="input-display"></div>
             <div class="number-buttons">
                 <button class="button number" onclick="appendToExpression('1')">1</button>
@@ -46,8 +48,8 @@
             <button class="button backspace" onclick="deleteLastDigit()">Delete</button>
             <button class="button clear-button" onclick="clearExpression()">Clear</button>
             <button class="button submit-button" onclick="checkAnswer()">Submit</button>
+            <div id="result" class="result-display"></div>
         </div>
-        <div id="result" class="result-display"></div>
     <script src="game.js"></script>
 </body>
 </html>
