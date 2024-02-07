@@ -6,7 +6,7 @@ body {
     align-items: center;
     background-color: #333;
     font-family: 'Lexend', sans-serif;
-    color: white;
+    color: #c2ff9a;
 }
 
 .game-container {
@@ -123,11 +123,11 @@ body {
 
 .number{
     background-color: #B499FF;
-    width: 50px;
+    width: 60px;
     color: #FFFFFF;
     font-family: 'Lexend', sans-serif;
     font-weight: 800;
-    font-size: large;
+    font-size: x-large;
     filter: drop-shadow(-5px 0px 0px #7B758A);
 }
 .operator{
