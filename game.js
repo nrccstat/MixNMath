@@ -119,6 +119,10 @@ document.addEventListener('keydown', function(event) {
         appendToExpression(key);
     } else if (key === '+' || key === '-' || key === '*' || key === '/' || (event.shiftKey && key === '^')) {
         appendToExpression(key);
+    } else if (key === '(') {
+        appendToExpression('(');
+    } else if (key === ')') {
+        appendToExpression(')');
     } else if (key === 'Enter') {
         checkAnswer();
     } else if (key === 'Backspace') {
