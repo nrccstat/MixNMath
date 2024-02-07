@@ -56,9 +56,8 @@ function appendToExpression(char) {
 
     const lastChar = currentExpression[currentExpression.length - 1];
 
-    // Check for consecutive operators
-    if ((lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') && 
-        (char === '+' || char === '-' || char === '*' || char === '/')) {
+    if ((lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/' || lastChar === "^") && 
+        (char === '+' || char === '-' || char === '*' || char === '/' || lastChar === "^")) {
         alert("Please use one operator at a time.");
         return;
     }
