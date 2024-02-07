@@ -112,5 +112,16 @@ function checkAnswer() {
     }
 }
 
-// Initial setup
 document.addEventListener('DOMContentLoaded', updateTargetDisplay);
+document.addEventListener('keydown', function(event) {
+    const key = event.key;
+    if (key >= '0' && key <= '9') {
+        appendToExpression(key);
+    } else if (key === '+' || key === '-' || key === '*' || key === '/' || (event.shiftKey && key === '^')) {
+        appendToExpression(key);
+    } else if (key === 'Enter') {
+        checkAnswer();
+    } else if (key === 'Backspace') {
+        deleteLastDigit();
+    } 
+});
