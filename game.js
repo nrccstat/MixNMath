@@ -136,5 +136,7 @@ document.addEventListener('keydown', function(event) {
         checkAnswer();
     } else if (key === 'Backspace') {
         deleteLastDigit();
-    } 
+    } else if (key === 'Delete') {
+        clearExpression();
+    }
 });
