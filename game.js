@@ -49,14 +49,21 @@ function appendToExpression(char) {
         alert("Each digit can only be used once.");
         return;
     }
-    
+
     if (!isNaN(char)) {
         usedDigits.add(char);
     }
 
+    // Check if the expression is empty and the character is an operator
+    if (currentExpression.trim().length === 0 && (char === '+' || char === '-' || char === '*' || char === '/' || char === '^')) {
+        alert("Invalid operator usage.");
+        return;
+    }
+
     const lastChar = currentExpression[currentExpression.length - 1];
 
-    if ((lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/' || lastChar === "^") && 
+    // Check for consecutive operators
+    if ((lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/' || lastChar === "^") &&
         (char === '+' || char === '-' || char === '*' || char === '/' || lastChar === "^")) {
         alert("Please use one operator at a time.");
         return;
@@ -65,6 +72,7 @@ function appendToExpression(char) {
     currentExpression += char;
     document.getElementById('expression').innerText = currentExpression;
 }
+
 
 function clearExpression() {
     currentExpression = '';
@@ -76,22 +84,19 @@ function clearExpression() {
 function checkAllDigitsUsedOnce() {
     for (let digit = 1; digit <= 9; digit++) {
         if (!usedDigits.has(digit.toString())) {
-            return false; // If any digit from 1-9 is not used, return false
+            return false; 
         }
     }
-    return true; // All digits were used exactly once
+    return true; 
 }
 
 function deleteLastDigit() {
     if (currentExpression.length > 0) {
         const lastChar = currentExpression[currentExpression.length - 1];
         if (!isNaN(lastChar)) {
-            // If last character is a digit, remove it from usedDigits
             usedDigits.delete(lastChar);
         }
-        // Remove the last character from the expression
         currentExpression = currentExpression.slice(0, -1);
-        // Update the expression display
         document.getElementById('expression').innerText = currentExpression;
     }
 }
@@ -100,6 +105,23 @@ function checkAnswer() {
     if (!checkAllDigitsUsedOnce()) {
         document.getElementById('result').innerText = "You must use all digits from 1-9 exactly once.";
         return;
+    }
+
+    const trimmedExpression = currentExpression.trim();
+    const firstChar = trimmedExpression.charAt(0);
+    const lastChar = trimmedExpression.charAt(trimmedExpression.length - 1);
+    const operators = ['+', '-', '*', '/', '^'];
+
+    if (operators.includes(firstChar) || operators.includes(lastChar)) {
+        document.getElementById('result').innerText = "Invalid operator usage.";
+        return;
+    }
+
+    for (let i = 0; i < trimmedExpression.length - 1; i++) {
+        if (operators.includes(trimmedExpression.charAt(i)) && operators.includes(trimmedExpression.charAt(i + 1))) {
+            document.getElementById('result').innerText = "Please use one operator at a time.";
+            return;
+        }
     }
 
     try {
@@ -120,6 +142,7 @@ function checkAnswer() {
     }
 }
 
+
 document.addEventListener('DOMContentLoaded', updateTargetDisplay);
 document.addEventListener('keydown', function(event) {
     const key = event.key;
@@ -132,6 +155,12 @@ document.addEventListener('keydown', function(event) {
     } else if (key === ')') {
         appendToExpression(')');
     } else if (key === 'Enter') {
+        const lastChar = currentExpression.trim().charAt(currentExpression.trim().length - 1);
+        const operators = ['+', '-', '*', '/', '^'];
+        if (operators.includes(lastChar)) {
+            alert("Invalid operator usage.");
+            return;
+        }
         checkAnswer();
     } else if (key === 'Backspace') {
         deleteLastDigit();
