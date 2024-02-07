@@ -68,6 +68,37 @@ This function deletes the last digit from the current expression. It updates the
 
 This function checks if the current expression evaluates to the target number and provides feedback. It does not take any parameters.
 
+## CSS Styles
+
+- `body`: Sets the layout of the entire page, with centering and a background color of #333.
+
+- `.game-container`: Styles the container for the game interface with background color, padding, border radius, and maximum width.
+
+- `.difficulty-buttons`: Adds margin at the bottom of the difficulty buttons.
+
+- `.difficulty-button`: Styles the difficulty buttons with margin, padding, border, border radius, cursor, and transition effects.
+
+- `#basic`, `#medium`, `#hard`: Assigns different background colors to the difficulty buttons based on their IDs.
+
+- `.title`: Styles the game title with margin and color.
+
+- `.level-display`: Styles the level display with margin.
+
+- `.input-display`: Styles the input display area with minimum height, background color, border radius, padding, and margin.
+
+- `.buttons-container`: Styles the container for buttons with flex layout, wrapping, and center alignment.
+
+- `.button`: Styles the buttons with padding, margin, and border radius.
+
+- `.button:hover`: Adds a hover effect to the buttons with a transition.
+
+- `.submit-button`: Styles the submit button with a specific background color.
+
+- `.clear-button`: Styles the clear button with a specific background color.
+
+- `#my`: Zooms the content inside the `#my` element by 300%.
+
+
 
 
 
