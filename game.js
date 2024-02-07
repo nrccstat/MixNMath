@@ -54,6 +54,15 @@ function appendToExpression(char) {
         usedDigits.add(char);
     }
 
+    const lastChar = currentExpression[currentExpression.length - 1];
+
+    // Check for consecutive operators
+    if ((lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') && 
+        (char === '+' || char === '-' || char === '*' || char === '/')) {
+        alert("Please use one operator at a time.");
+        return;
+    }
+
     currentExpression += char;
     document.getElementById('expression').innerText = currentExpression;
 }
