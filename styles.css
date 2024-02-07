@@ -65,9 +65,12 @@ body {
 .input-display {
     min-height: 50px;
     background-color: #111;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 25px;
+    padding: 40px;
     margin-bottom: 20px;
+    margin-left:250px;
+    margin-right:250px;
+    font-size: xx-large;
 }
 
 .buttons-container {
@@ -98,26 +101,34 @@ body {
 
     background-color: #C5FFB7;
     font-family: 'Lexend', sans-serif;
-    font: bold;
+    filter: drop-shadow(-5px 0px 0px #48804E);
+    font-weight: 800;
 }
 
 .clear-button{
     background-color: #E5ABAB;
     font-family: 'Lexend', sans-serif;
-    font: bold;
+    font-weight: 800;
+    filter: drop-shadow(-5px 0px 0px #8F4949);
 }
-
+.backspace{
+    background-color: #a8a8a8;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 800;
+    filter: drop-shadow(-5px 0px 0px #505050);
+}
 #my{
     zoom: 500%;
     }
 
 .number{
     background-color: #B499FF;
-    width: 40px;
+    width: 50px;
     color: #FFFFFF;
     font-family: 'Lexend', sans-serif;
     font-weight: 800;
     font-size: large;
+    filter: drop-shadow(-5px 0px 0px #7B758A);
 }
 .operator{
     background-color: #a5c2ff;
@@ -126,4 +137,5 @@ body {
     font-family: 'Lexend', sans-serif;
     font-weight: 800;
     font-size: large;
+    filter: drop-shadow(-5px 0px 0px #546981);
 }
