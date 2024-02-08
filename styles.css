@@ -268,7 +268,7 @@ body {
     filter: drop-shadow(-5px 0px 0px #546981);
 }
 
-.result-display:{
+.result-display{
  animation: headShake;
  animation-duration: 0.5s;
 }
