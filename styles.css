@@ -295,3 +295,43 @@ body {
     font-weight: 400;
     margin-bottom: 10px;
 }
+
+body {
+    font-family: 'Lexend';
+    font-size: 22px;
+}
+
+.timer-container {
+    position: fixed;
+    top: 120px; /* Adjust as needed to lower */
+    right: 50px; /* Adjust as needed to move left */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.timer-element {
+    color: #FFFAD0;
+    font-size: 40px;
+    font-family: League Spartan;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.start-button {
+    background-color: #68AE6F;
+    font-family: 'Lexend', sans-serif;
+    filter: drop-shadow(-5px 0px 0px #48804E);
+    font-weight: 800;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.start-button:hover {
+    background-color: #5B9760;
+}
