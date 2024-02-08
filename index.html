@@ -7,11 +7,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
-    <style>
-        body {
-            font-family: 'Lexend';font-size: 22px;
-        }
-    </style>
 </head>
 <body>
 <div class="game-container">
@@ -55,6 +50,10 @@
     <button class="button clear-button" onclick="clearExpression()">Clear</button>
     <button class="button submit-button" onclick="checkAnswer()">Submit</button>
     <div id="result" class="result-display"></div>
+</div>
+<div class="timer-container">
+    <div class="timer-element">1:00</div>
+    <button class="start-button" onclick="startTimer()">Start Timer</button>
 </div>
 <script src="game.js"></script>
 </body>
