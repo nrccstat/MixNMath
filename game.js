@@ -1,10 +1,10 @@
 let currentExpression = '';
-let difficulty = 'Basic';
+var difficulty = 'Easy';
 let usedDigits = new Set(); // To track digits used in the current expression
 
 function generateTargetNumber() {
     let min, max;
-    if (difficulty == "Basic") {
+    if (difficulty == "Easy") {
         min = 1;
         max = 100;
     }
@@ -12,12 +12,14 @@ function generateTargetNumber() {
         min = 100;
         max = 300;
     }
-    else{
+    else if (difficulty == "Hard"){
         min = 300;
         max = 1000;     
     }
+
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 
 let targetNumber = generateTargetNumber(); // Initialize target number
 
@@ -28,6 +30,7 @@ function updateTargetDisplay() {
 function setDifficulty(newDifficulty) {
     usedDigits.clear(); // Clear used digits
     currentExpression = ''; // Clear current expression
+    difficulty = newDifficulty;
     targetNumber = generateTargetNumber(); // Generate a new target number based on the new difficulty
     updateTargetDisplay(); // Update the display to show the new target number and reset level
     document.getElementById('expression').innerText = ''; // Clear the expression display
