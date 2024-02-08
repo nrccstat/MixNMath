@@ -4,8 +4,18 @@ let usedDigits = new Set(); // To track digits used in the current expression
 
 function generateTargetNumber() {
     let min, max;
-    min = 1;
-    max = 1000;
+    if (difficulty == "Basic") {
+        min = 1;
+        max = 100;
+    }
+    else if (difficulty == "Medium"){
+        min = 100;
+        max = 300;
+    }
+    else{
+        min = 300;
+        max = 1000;     
+    }
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
