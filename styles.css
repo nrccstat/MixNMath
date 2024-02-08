@@ -14,7 +14,7 @@ body {
     background-color: #302F31;
     font-family: 'Lexend', sans-serif;
     color: #c2ff9a;
-    overflow: auto;
+    overflow: hidden;
 }
 .title {
     margin: 0;
