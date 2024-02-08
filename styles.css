@@ -139,3 +139,52 @@ body {
     font-size: large;
     filter: drop-shadow(-5px 0px 0px #546981);
 }
+
+body {
+    font-family: 'Lexend';
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Lexend';
+}
+.navbar a#easy {
+    color: green; 
+}
+.navbar a#easy:hover {
+    background-color: green; 
+    color: black; 
+}
+.navbar a#daily {
+    color: yellow; 
+}
+.navbar a#daily:hover {
+    background-color: yellow; 
+    color: black; 
+}
+.navbar a#expert {
+    color: red; 
+}
+
+.navbar a#expert:hover,
+
+.navbar a#expert:active {
+    background-color: red; 
+    color: white; 
+}
+.game-container {
+    margin-top: 100px; 
+}
