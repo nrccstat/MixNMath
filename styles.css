@@ -1,16 +1,32 @@
-body {
+*{
+    border: 0;
+    padding: 0;
     margin: 0;
+    }
+    
+
+body {
+    margin: 0px;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #333;
+    background-color: #302F31;
     font-family: 'Lexend', sans-serif;
     color: #c2ff9a;
 }
+.title {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lexend', sans-serif;
+    color: #c2ff9a;
+    font-size:2cm;
+}
 
 .game-container {
-    background-color: #222;
+    background-color: #302F31;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -18,6 +34,20 @@ body {
     max-height: 1080;
     width: 100%;
     height: 100%;
+}
+
+.navbar {
+    background-color: #282828;
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    text-align: center;
+    max-width:100%;
+    max-height: 2080;
+    width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .difficulty-buttons {
@@ -32,27 +62,107 @@ body {
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
-    color: #222;
+    color: #302F31;
+    font-size: medium;
 }
 
 #basic {
-    background-color: #68AE6F; /* Green */
+    margin: 20px 5px;
+    background-color: #85db8e; /* Green */
     font-family: 'Lexend', sans-serif;
     font: bold;
 }
 
+
+
 #medium {
-    background-color: #2196F3; /* Blue */
+    margin: 20px 5px;
+    background-color: hsl(207, 100%, 81%); /* Blue */
     font-family: 'Lexend', sans-serif;
     font: bold;
 }
 
 #hard {
-    background-color: #f44336; /* Red */
+    margin: 20px 5px;
+    background-color: #ffaaa3; /* Red */
     font-family: 'Lexend', sans-serif;
     font: bold;
+    j
+}
+#begin {
+    border: none;
+    padding: 25px;
+    margin: 0px;
+    color: #C5FFB7;
+    background-color: #282828; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font: bolder;
+    font-size:large;
+}
+#begin:hover {
+    border: none;
+    margin: 0px;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #C5FFB7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+#daily:hover {
+    border: none;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #FFFCB7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+#expert:hover {
+    border: none;
+    margin: 0px;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #ffb7b7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+@keyframes zoom-in {
+    0% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1.1, 1.1);
+    }
+  }
+#daily {
+    border: none;
+    padding: 25px;
+    margin:0px;
+    color: #FFFCB7;
+    background-color: #282828; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+    font-size:large;
 }
 
+#expert {
+    border: none;
+    padding: 25px;
+    margin: 0px;
+    color: #ffb7b7;
+    background-color: #282828; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+    font-size:large;
+}
 .title {
     margin: 10px 0;
     color: pink;
@@ -71,6 +181,12 @@ body {
     margin-left:250px;
     margin-right:250px;
     font-size: xx-large;
+}
+.input-display:hover {
+ border-style: solid;
+ border-width: 5px;
+ transition: 0.2s;
+ border-color: rgb(240, 255, 108);
 }
 
 .buttons-container {
@@ -95,26 +211,38 @@ body {
     transition: 0.5s;
     font-family: 'Lexend', sans-serif;
     font: bold;
+    filter: drop-shadow(-5px 0px 0px #494949);
+}
+
+.button:focus {
+    transition: 0.5s;
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+    animation: pulse;
+    animation-duration: 0.5s;
 }
 
 .submit-button{
 
-    background-color: #C5FFB7;
+    background-color: #68AE6F;
     font-family: 'Lexend', sans-serif;
     filter: drop-shadow(-5px 0px 0px #48804E);
     font-weight: 800;
+    color: #FFFFFF;
 }
 
 .clear-button{
-    background-color: #E5ABAB;
+    background-color: #ff8f8f;
     font-family: 'Lexend', sans-serif;
     font-weight: 800;
+    color: #FFFFFF;
     filter: drop-shadow(-5px 0px 0px #8F4949);
 }
 .backspace{
-    background-color: #a8a8a8;
+    background-color: #808080;
     font-family: 'Lexend', sans-serif;
     font-weight: 800;
+    color: #FFFFFF;
     filter: drop-shadow(-5px 0px 0px #505050);
 }
 #my{
@@ -140,51 +268,7 @@ body {
     filter: drop-shadow(-5px 0px 0px #546981);
 }
 
-body {
-    font-family: 'Lexend';
-    font-size: 22px;
-    margin: 0;
-    padding: 0;
-}
-.navbar {
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    z-index: 9999;
-}
-.navbar a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'Lexend';
-}
-.navbar a#easy {
-    color: green; 
-}
-.navbar a#easy:hover {
-    background-color: green; 
-    color: black; 
-}
-.navbar a#daily {
-    color: yellow; 
-}
-.navbar a#daily:hover {
-    background-color: yellow; 
-    color: black; 
-}
-.navbar a#expert {
-    color: red; 
-}
-
-.navbar a#expert:hover,
-
-.navbar a#expert:active {
-    background-color: red; 
-    color: white; 
-}
-.game-container {
-    margin-top: 100px; 
+.result-display:{
+ animation: headShake;
+ animation-duration: 0.5s;
 }
