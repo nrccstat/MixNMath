@@ -1,41 +1,21 @@
-let currentLevel = 1; // Start at level 1, though the level might play a different role depending on game design
 let currentExpression = '';
 let difficulty = 'Basic';
 let usedDigits = new Set(); // To track digits used in the current expression
 
 function generateTargetNumber() {
     let min, max;
-    switch (difficulty) {
-        case 'Basic':
-            min = 1;
-            max = 1000;
-            break;
-        case 'Medium':
-            min = 1000;
-            max = 4000;
-            break;
-        case 'Hard':
-            min = 4000;
-            max = 11111;
-            break;
-        default:
-            // Default to Basic range if something goes wrong
-            min = 1;
-            max = 1000;
-    }
+    min = 1;
+    max = 1000;
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 let targetNumber = generateTargetNumber(); // Initialize target number
 
 function updateTargetDisplay() {
-    document.getElementById('level').innerText = `Level: ${currentLevel}`;
     document.getElementById('challenge').innerText = `Make ${targetNumber}`;
 }
 
 function setDifficulty(newDifficulty) {
-    difficulty = newDifficulty;
-    currentLevel = 1; // Reset to level 1 when difficulty changes
     usedDigits.clear(); // Clear used digits
     currentExpression = ''; // Clear current expression
     targetNumber = generateTargetNumber(); // Generate a new target number based on the new difficulty
