@@ -1,6 +1,82 @@
 let currentExpression = '';
-var difficulty = 'Easy';
-let usedDigits = new Set(); // To track digits used in the current expression
+let difficulty = 'Easy';
+let usedDigits = new Set(); 
+let timerInterval;
+let timerStarted = false;
+let pauseButtonAdded = false; 
+
+function startTimer() {
+    timerStarted = true;
+    let timerDisplay = document.getElementById("timer");
+    let time = timerDisplay.textContent.split(":");
+    let minutes = parseInt(time[0]);
+    let seconds = parseInt(time[1]);
+
+    let totalTime = minutes * 60 + seconds;
+
+    timerInterval = setInterval(function() {
+        totalTime--;
+        if (totalTime >= 0) {
+            minutes = Math.floor(totalTime / 60);
+            seconds = totalTime % 60;
+
+            let formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+            timerDisplay.textContent = formattedTime;
+        } else {
+            clearInterval(timerInterval);
+            alert("Time's up!");
+            timerStarted = false;
+            enableOrDisableInputs();
+            removeButtonClickListeners();
+            removePauseButton(); 
+        }
+    }, 1000); 
+
+    enableAllButtons(); 
+    if (!pauseButtonAdded && difficulty === "Beginner") { 
+        addPauseButton();
+    }
+}
+
+function enableAllButtons() {
+    let buttons = document.querySelectorAll(".button");
+    buttons.forEach(button => {
+        button.removeAttribute("disabled");
+    });
+}
+
+function addPauseButton() {
+    let timerContainer = document.querySelector(".timer-container");
+    let pauseButton = document.createElement("button");
+    pauseButton.setAttribute("id", "pauseButton");
+    pauseButton.setAttribute("class", "clear-button"); 
+    pauseButton.textContent = "Pause Timer";
+    pauseButton.addEventListener("click", toggleTimer);
+    timerContainer.appendChild(pauseButton);
+    pauseButtonAdded = true;
+}
+
+function removePauseButton() {
+    let pauseButton = document.getElementById("pauseButton");
+    if (pauseButton) {
+        pauseButton.remove();
+        pauseButtonAdded = false;
+    }
+}
+function toggleTimer() {
+    if (timerStarted) {
+        clearInterval(timerInterval);
+        timerStarted = false;
+        document.getElementById("startButton").textContent = "Start Timer";
+        document.getElementById("pauseButton").style.display = "none";
+    } else {
+        startTimer();
+        document.getElementById("startButton").textContent = "Pause Timer";
+        document.getElementById("pauseButton").style.display = "inline-block";
+    }
+}
+
+
 
 function generateTargetNumber() {
     let min, max;
@@ -21,20 +97,20 @@ function generateTargetNumber() {
 }
 
 
-let targetNumber = generateTargetNumber(); // Initialize target number
+let targetNumber = generateTargetNumber(); 
 
 function updateTargetDisplay() {
     document.getElementById('challenge').innerText = `Make ${targetNumber}`;
 }
 
 function setDifficulty(newDifficulty) {
-    usedDigits.clear(); // Clear used digits
-    currentExpression = ''; // Clear current expression
+    usedDigits.clear(); 
+    currentExpression = ''; 
     difficulty = newDifficulty;
-    targetNumber = generateTargetNumber(); // Generate a new target number based on the new difficulty
-    updateTargetDisplay(); // Update the display to show the new target number and reset level
-    document.getElementById('expression').innerText = ''; // Clear the expression display
-    document.getElementById('result').innerText = ''; // Clear any previous result message
+    targetNumber = generateTargetNumber(); 
+    updateTargetDisplay(); 
+    document.getElementById('expression').innerText = ''; 
+    document.getElementById('result').innerText = ''; 
 }
 
 function appendToExpression(char) {
@@ -47,7 +123,6 @@ function appendToExpression(char) {
         usedDigits.add(char);
     }
 
-    // Check if the expression is empty and the character is an operator
     if (currentExpression.trim().length === 0 && (char === '+' || char === '-' || char === '*' || char === '/' || char === '^')) {
         alert("Invalid operator usage.");
         return;
@@ -55,7 +130,6 @@ function appendToExpression(char) {
 
     const lastChar = currentExpression[currentExpression.length - 1];
 
-    // Check for consecutive operators
     if ((lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/' || lastChar === "^") &&
         (char === '+' || char === '-' || char === '*' || char === '/' || lastChar === "^")) {
         alert("Please use one operator at a time.");
@@ -122,7 +196,6 @@ function checkAnswer() {
         document.getElementById('result').innerText = `Your expression evaluates to: ${evaluatedResult}`;
         if (Math.abs(evaluatedResult - targetNumber) < 1e-4) {
             alert(`Correct! Your expression matches the target number: ${evaluatedResult}`);
-            // Reset for a new challenge
             clearExpression();
             targetNumber = generateTargetNumber();
             updateTargetDisplay();
@@ -138,26 +211,28 @@ function checkAnswer() {
 
 document.addEventListener('DOMContentLoaded', updateTargetDisplay);
 document.addEventListener('keydown', function(event) {
-    const key = event.key;
-    if (key > '0' && key <= '9') {
-        appendToExpression(key);
-    } else if (key === '+' || key === '-' || key === '*' || key === '/' || (event.shiftKey && key === '^')) {
-        appendToExpression(key);
-    } else if (key === '(') {
-        appendToExpression('(');
-    } else if (key === ')') {
-        appendToExpression(')');
-    } else if (key === 'Enter') {
-        const lastChar = currentExpression.trim().charAt(currentExpression.trim().length - 1);
-        const operators = ['+', '-', '*', '/', '^'];
-        if (operators.includes(lastChar)) {
-            alert("Invalid operator usage.");
-            return;
+    if (timerStarted) { 
+        const key = event.key;
+        if (key >= '0' && key <= '9') {
+            appendToExpression(key);
+        } else if (key === '+' || key === '-' || key === '*' || key === '/' || (event.shiftKey && key === '^')) {
+            appendToExpression(key);
+        } else if (key === '(') {
+            appendToExpression('(');
+        } else if (key === ')') {
+            appendToExpression(')');
+        } else if (key === 'Enter') {
+            const lastChar = currentExpression.trim().charAt(currentExpression.trim().length - 1);
+            const operators = ['+', '-', '*', '/'];
+            if (operators.includes(lastChar)) {
+                alert("Invalid operator usage.");
+                return;
+            }
+            checkAnswer();
+        } else if (key === 'Backspace') {
+            deleteLastDigit();
+        } else if (key === 'Delete') {
+            clearExpression();
         }
-        checkAnswer();
-    } else if (key === 'Backspace') {
-        deleteLastDigit();
-    } else if (key === 'Delete') {
-        clearExpression();
     }
 });
