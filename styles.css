@@ -25,7 +25,11 @@ body {
     color: #c2ff9a;
     font-size:2cm;
 }
-
+.timer-element{
+    font-family: 'Lexend', sans-serif; 
+    color: #c2ff9a;
+    font-size:2cm;
+}
 .game-container {
     background-color: #302F31;
     padding: 20px;
@@ -49,10 +53,15 @@ body {
     width: 100vw;
     height: 100%;
     box-sizing: border-box;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #4C4452;
 }
 
 .difficulty-buttons {
     margin-bottom: 20px;
+}
+.difficulty-button:hover {
+    color: #ffffff;
 }
 
 .difficulty-button {
@@ -113,6 +122,17 @@ body {
     animation-fill-mode: both;
 }
 #daily:hover {
+    border: none;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #FFFCB7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+#daily:active {
     border: none;
     transition-duration: 0.5s;
     color: #282828;
@@ -296,6 +316,11 @@ body {
     margin-bottom: 10px;
 }
 
+.tim1:hover{
+    color: #ff0000;
+}
+
+
 body {
     font-family: 'Lexend';
     font-size: 22px;
@@ -313,9 +338,10 @@ body {
 .timer-element {
     color: #FFFAD0;
     font-size: 40px;
-    font-family: League Spartan;
+    font-family: 'Lexend';
     font-weight: 400;
     margin-bottom: 10px;
+    padding: 10px;
 }
 
 .start-button {
@@ -335,3 +361,4 @@ body {
 .start-button:hover {
     background-color: #5B9760;
 }
+
