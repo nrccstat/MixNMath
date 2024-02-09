@@ -11,16 +11,18 @@ function startTimer() {
     let time = timerDisplay.textContent.split(":");
     let minutes = parseInt(time[0]);
     let seconds = parseInt(time[1]);
+    let msec= parseInt(time[2]);
 
-    let totalTime = minutes * 60 + seconds;
+    let totalTime = minutes * 6000 + seconds *100 + msec;
 
     timerInterval = setInterval(function() {
         totalTime--;
         if (totalTime >= 0) {
-            minutes = Math.floor(totalTime / 60);
-            seconds = totalTime % 60;
+            minutes = Math.floor(totalTime / 6000);
+            seconds = Math.floor(totalTime / 100);
+            msec = totalTime % 100;
 
-            let formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+            let formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds + ":" + (msec < 10 ? "0" : "") + msec;
             timerDisplay.textContent = formattedTime;
         } else {
             clearInterval(timerInterval);
@@ -30,7 +32,7 @@ function startTimer() {
             removeButtonClickListeners();
             removePauseButton(); 
         }
-    }, 1000); 
+    }, 10); 
 
     enableAllButtons(); 
     if (!pauseButtonAdded && difficulty === "Beginner") { 
