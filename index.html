@@ -25,36 +25,44 @@
         </nav>
     </header>
     <h1 class="title">MixNMath!</h1>
-    <div id="expression" class="input-display"></div>
-    <div class="number-buttons">
-        <button class="button number" onclick="appendToExpression('1')">1</button>
-        <button class="button number" onclick="appendToExpression('2')">2</button>
-        <button class="button number" onclick="appendToExpression('3')">3</button>
-        <button class="button number" onclick="appendToExpression('4')">4</button>
-        <button class="button number" onclick="appendToExpression('5')">5</button>
-        <button class="button number" onclick="appendToExpression('6')">6</button>
-        <button class="button number" onclick="appendToExpression('7')">7</button>
-        <button class="button number" onclick="appendToExpression('8')">8</button>
-        <button class="button number" onclick="appendToExpression('9')">9</button>
+    <div class="level-display">
+        <div id="challenge" class="level-display">Target Number</div>
     </div>
-    <div class="operator-buttons">
-        <button class="button operator" onclick="appendToExpression('(')">(</button>
-        <button class="button operator" onclick="appendToExpression(')')">)</button>
-        <button class="button operator" onclick="appendToExpression('+')">+</button>
-        <button class="button operator" onclick="appendToExpression('-')">-</button>
-        <button class="button operator" onclick="appendToExpression('*')">×</button>
-        <button class="button operator" onclick="appendToExpression('/')">÷</button>
-        <button class="button operator" onclick="appendToExpression('^')">^</button>
-    </div>
-    <button class="button backspace" onclick="deleteLastDigit()">Delete</button>
-    <button class="button clear-button" onclick="clearExpression()">Clear</button>
-    <button class="button submit-button" onclick="checkAnswer()">Submit</button>
+    <div id="expression" class="input-display" readonly></div>
+    
+        <div class="number-buttons">
+            <button class="button number" onclick="appendToExpression('1')" disabled>1</button>
+            <button class="button number" onclick="appendToExpression('2')" disabled>2</button>
+            <button class="button number" onclick="appendToExpression('3')" disabled>3</button>
+            <button class="button number" onclick="appendToExpression('4')" disabled>4</button>
+            <button class="button number" onclick="appendToExpression('5')" disabled>5</button>
+            <button class="button number" onclick="appendToExpression('6')" disabled>6</button>
+            <button class="button number" onclick="appendToExpression('7')" disabled>7</button>
+            <button class="button number" onclick="appendToExpression('8')" disabled>8</button>
+            <button class="button number" onclick="appendToExpression('9')" disabled>9</button>
+        </div>
+
+        <div class="operator-buttons">
+            <button class="button operator" onclick="appendToExpression('(')" disabled>(</button>
+            <button class="button operator" onclick="appendToExpression(')')" disabled>)</button>
+            <button class="button operator" onclick="appendToExpression('+')" disabled>+</button>
+            <button class="button operator" onclick="appendToExpression('-')" disabled>-</button>
+            <button class="button operator" onclick="appendToExpression('*')" disabled>×</button>
+            <button class="button operator" onclick="appendToExpression('/')" disabled>÷</button>
+            <button class="button operator" onclick="appendToExpression('^')" disabled>^</button>
+        </div>
+
+        <button class="button backspace" onclick="deleteLastDigit()" disabled>Delete</button>
+        <button class="button clear-button" onclick="clearExpression()" disabled>Clear</button>
+        <button class="button submit-button" onclick="checkAnswer()" disabled>Submit</button>
     <div id="result" class="result-display"></div>
 </div>
 <div class="timer-container">
-    <div class="timer-element">1:00</div>
-    <button class="start-button" onclick="startTimer()">Start Timer</button>
+    <div id="timer" class="timer-element">1:00</div>
+    <button id="startButton" class="start-button" onclick="startTimer()">Start Timer</button>
+    <button id="pauseButton" class="button clear-button" style="display: none;" onclick="toggleTimer()">Pause Timer</button>
 </div>
+
 <script src="game.js"></script>
 </body>
 </html>
