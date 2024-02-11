@@ -2,25 +2,38 @@ let currentExpression = '';
 let difficulty = 'Easy';
 let usedDigits = new Set(); 
 
-function generateTargetNumber() {
-    let min, max;
-    if (difficulty == "Easy") {
-        min = 1;
-        max = 100;
-    }
-    else if (difficulty == "Medium"){
-        min = 100;
-        max = 300;
-    }
-    else if (difficulty == "Hard"){
-        min = 300;
-        max = 1000;     
+
+
+
+function setupGame() {
+    // Identify game mode based on the page or a condition, for simplification let's just focus on "Daily"
+    difficulty = 'Daily';
+    if (difficulty === 'Daily') {
+        setupDailyMode();
     }
 
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    // Set up event listeners for buttons
+    document.querySelector('.clear-button').onclick = clearExpression;
+    document.querySelector('.submit-button').onclick = checkAnswer;
+    document.addEventListener('keydown', handleKeyPress);
+
+    // Initialize other UI components if necessary
 }
 
-let targetNumber = generateTargetNumber(); 
+function setupDailyMode() {
+    document.querySelector('.difficulty-buttons').style.display = 'none'; // Hide difficulty buttons
+    targetNumber = generateTargetNumberForDaily();
+    updateTargetDisplay();
+}
+
+function generateTargetNumberForDaily() {
+    const today = new Date();
+    const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+    Math.seedrandom(seed); // Seed the RNG with today's date
+    return Math.floor(Math.random() * 891) + 100; // Generates numbers between 100 and 990
+}
+
+let targetNumber = generateTargetNumberForDaily(); 
 
 function updateTargetDisplay() {
     document.getElementById('challenge').innerText = `Make ${targetNumber}`;
@@ -116,17 +129,13 @@ function checkAnswer() {
 
     try {
         const evaluatedResult = math.evaluate(currentExpression);
-        document.getElementById('result').innerText = `Your expression evaluates to: ${evaluatedResult}`;
         if (Math.abs(evaluatedResult - targetNumber) < 1e-4) {
-            alert(`Correct! Your expression matches the target number: ${evaluatedResult}`);
-            clearExpression();
-            targetNumber = generateTargetNumber();
-            updateTargetDisplay();
+            displayCongratsMessage();
         } else {
-            alert(`Close! Your expression evaluates to: ${evaluatedResult}, but the target was ${targetNumber}. Try again.`);
+            document.getElementById('result').innerText = `Close! Your expression evaluates to: ${evaluatedResult}, but the target was ${targetNumber}. Try again.`;
         }
     } catch (error) {
-        document.getElementById('result').innerText = error;
+        document.getElementById('result').innerText = "Error in expression. Please try again.";
         console.error("Error evaluating expression:", error);
     }
 }
@@ -136,6 +145,32 @@ document.addEventListener('DOMContentLoaded', updateTargetDisplay);
 document.addEventListener('keydown', handleKeyPress);
 
 
+function displayCongratsMessage() {
+    // Select all child elements of `.game-container` except `header`
+    const gameContentElements = document.querySelectorAll('.game-container > *:not(header)');
+
+    // Hide these elements
+    gameContentElements.forEach(element => {
+        element.style.display = 'none';
+    });
+
+    // Create a congratulatory message and append it directly under the navbar or as a part of the navbar, based on your preference
+    const congratsElement = document.createElement('div');
+    congratsElement.setAttribute('id', 'congrats-message');
+    congratsElement.style.textAlign = 'center';
+    congratsElement.style.fontSize = '24px';
+    congratsElement.style.fontWeight = 'bold';
+    congratsElement.innerHTML = 'Congratulations! You\'ve solved the daily problem!';
+
+    // Append the message to the game container, considering navbar should remain visible
+    const navbar = document.querySelector('.navbar');
+    if (navbar.nextSibling) {
+        navbar.parentNode.insertBefore(congratsElement, navbar.nextSibling);
+    } else {
+        // If there's no next sibling, append to the game container
+        document.querySelector('.game-container').appendChild(congratsElement);
+    }
+}
 
 function handleKeyPress(event) {
     const key = event.key; 
