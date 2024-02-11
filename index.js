@@ -6,7 +6,8 @@ let timerStarted = false;
 let pauseButtonAdded = false; 
 
 function startTimer() {
-    // Show the Target Number when starting the timer
+    timerStarted = true; 
+    
     document.getElementById("challenge").style.display = "block";
 
     let timerDisplay = document.getElementById("timer");
@@ -39,13 +40,16 @@ function startTimer() {
             document.getElementById("startButton").textContent = "Reset Timer";
             document.getElementById("startButton").style.backgroundColor = "#ff8f8f";
             document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #8F4949)";
-            document.getElementById("challenge").style.display = "none"; // Hide Target Number
+            document.getElementById("challenge").style.display = "none"; 
         }
     }, 10);
 
     document.getElementById("startButton").setAttribute("onclick", "resetTimer()");
-    document.getElementById("startButton").style.backgroundColor = ""; // Reset button color
+    document.getElementById("startButton").style.backgroundColor = ""; 
+    
+    enableFeatures();
 }
+
 
 
 function resetTimer() {
@@ -60,6 +64,11 @@ function resetTimer() {
     updateTargetDisplay();
 
     
+}
+
+function enableFeatures() {
+    enableAllButtons(); 
+    document.addEventListener('keydown', handleKeyPress); 
 }
 
 
@@ -237,9 +246,11 @@ function checkAnswer() {
 
 
 document.addEventListener('DOMContentLoaded', updateTargetDisplay);
-document.addEventListener('keydown', function(event) {
-    if (timerStarted) { 
-        const key = event.key;
+document.addEventListener('keydown', handleKeyPress);
+
+function handleKeyPress(event) {
+    if (timerStarted) {
+        const key = event.key; 
         if (key >= '0' && key <= '9') {
             appendToExpression(key);
         } else if (key === '+' || key === '-' || key === '*' || key === '/' || (event.shiftKey && key === '^')) {
@@ -262,4 +273,6 @@ document.addEventListener('keydown', function(event) {
             clearExpression();
         }
     }
-});
+}
+
+
