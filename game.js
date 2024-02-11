@@ -9,41 +9,60 @@ function startTimer() {
     // Show the Target Number when starting the timer
     document.getElementById("challenge").style.display = "block";
 
-    timerStarted = true;
     let timerDisplay = document.getElementById("timer");
     let time = timerDisplay.textContent.split(":");
     let minutes = parseInt(time[0]);
     let seconds = parseInt(time[1]);
-    let msec= parseInt(time[2]);
+    let msec = parseInt(time[2]);
 
-    let totalTime = minutes * 6000 + seconds *100 + msec;
+    let totalTime = minutes * 6000 + seconds * 100 + msec;
 
-    timerInterval = setInterval(function() {
+    let timerInterval = setInterval(function () {
         totalTime--;
         if (totalTime >= 0) {
             minutes = Math.floor(totalTime / 6000);
-            seconds = Math.floor(totalTime / 100);
+            seconds = Math.floor((totalTime % 6000) / 100);
             msec = totalTime % 100;
 
-            let formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds + ":" + (msec < 10 ? "0" : "") + msec;
+            let formattedTime =
+                (minutes < 10 ? "0" : "") +
+                minutes +
+                ":" +
+                (seconds < 10 ? "0" : "") +
+                seconds +
+                ":" +
+                (msec < 10 ? "0" : "") +
+                msec;
             timerDisplay.textContent = formattedTime;
         } else {
             clearInterval(timerInterval);
-            alert("Time's up!");
-            timerStarted = false;
-            enableOrDisableInputs();
-            removeButtonClickListeners();
-            removePauseButton(); 
+            document.getElementById("startButton").textContent = "Reset Timer";
+            document.getElementById("startButton").style.backgroundColor = "#ff8f8f";
+            document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #8F4949)";
+            document.getElementById("challenge").style.display = "none"; // Hide Target Number
         }
-    }, 10); 
+    }, 10);
 
-    enableAllButtons(); 
-    if (!pauseButtonAdded && difficulty === "Beginner") { 
-        addPauseButton();
-    }
+    document.getElementById("startButton").setAttribute("onclick", "resetTimer()");
+    document.getElementById("startButton").style.backgroundColor = ""; // Reset button color
+}
+
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    document.getElementById("timer").textContent = "1:00:00";
+    document.getElementById("startButton").textContent = "Start Timer";
+    document.getElementById("startButton").style.backgroundColor = ""; // Reset button color
+    document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #48804E)"
+    document.getElementById("startButton").setAttribute("onclick", "startTimer()");
+    timerStarted = false;
+    removePauseButton();
+    updateTargetDisplay();
 
     
 }
+
+
 
 function enableAllButtons() {
     let buttons = document.querySelectorAll(".button");
@@ -109,6 +128,7 @@ let targetNumber = generateTargetNumber();
 function updateTargetDisplay() {
     document.getElementById('challenge').innerText = `Make ${targetNumber}`;
 }
+
 
 function setDifficulty(newDifficulty) {
     usedDigits.clear(); 
