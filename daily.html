@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
     <style>
         body {
@@ -23,17 +24,12 @@
                 <span class="line"></span>
             </div>
             <div class="nav-menu hide">
-                <a href="index.html"><button id="begin" class="mode-button">Beginner</button></a>
+                <a href="beginner.html"><button id="begin" class="mode-button">Beginner</button></a>
                 <a href="daily.html"><button id="daily" class="mode-button">Daily</button></a>
                 <a href="expert.html"><button id="expert" class="mode-button">Expert</button></a>
             </div>
         </nav>
     </header>
-    <div class="difficulty-buttons">
-        <button id="basic" class="difficulty-button" onclick="setDifficulty('Basic')">Easy</button>
-        <button id="medium" class="difficulty-button" onclick="setDifficulty('Medium')">Medium</button>
-        <button id="hard" class="difficulty-button" onclick="setDifficulty('Hard')">Hard</button>
-    </div>
     <h1 class="title">MixNMath!</h1>
     <div class="level-display">
         <div id="challenge" class="level-display">Target Number</div>
