@@ -6,6 +6,9 @@ let timerStarted = false;
 let pauseButtonAdded = false; 
 
 function startTimer() {
+    // Show the Target Number when starting the timer
+    document.getElementById("challenge").style.display = "block";
+
     timerStarted = true;
     let timerDisplay = document.getElementById("timer");
     let time = timerDisplay.textContent.split(":");
@@ -38,6 +41,8 @@ function startTimer() {
     if (!pauseButtonAdded && difficulty === "Beginner") { 
         addPauseButton();
     }
+
+    
 }
 
 function enableAllButtons() {
