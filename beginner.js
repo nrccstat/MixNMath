@@ -1,13 +1,13 @@
 let currentExpression = '';
 let difficulty = 'Easy';
-let usedDigits = new Set(); 
+let usedDigits = new Set();
 let timerInterval;
 let timerStarted = false;
-let pauseButtonAdded = false; 
+let pauseButtonAdded = false;
 
 function startTimer() {
-    timerStarted = true; 
-    
+    timerStarted = true;
+
     document.getElementById("challenge").style.display = "block";
 
     let timerDisplay = document.getElementById("timer");
@@ -18,7 +18,7 @@ function startTimer() {
 
     let totalTime = minutes * 6000 + seconds * 100 + msec;
 
-    let timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         totalTime--;
         if (totalTime >= 0) {
             minutes = Math.floor(totalTime / 6000);
@@ -40,17 +40,15 @@ function startTimer() {
             document.getElementById("startButton").textContent = "Reset Timer";
             document.getElementById("startButton").style.backgroundColor = "#ff8f8f";
             document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #8F4949)";
-            document.getElementById("challenge").style.display = "none"; 
+            document.getElementById("challenge").style.display = "none";
         }
     }, 10);
 
     document.getElementById("startButton").setAttribute("onclick", "resetTimer()");
-    document.getElementById("startButton").style.backgroundColor = ""; 
-    
+    document.getElementById("startButton").style.backgroundColor = "";
+
     enableFeatures();
 }
-
-
 
 function resetTimer() {
     clearInterval(timerInterval);
@@ -62,16 +60,12 @@ function resetTimer() {
     timerStarted = false;
     removePauseButton();
     updateTargetDisplay();
-
-    
 }
 
 function enableFeatures() {
-    enableAllButtons(); 
-    document.addEventListener('keydown', handleKeyPress); 
+    enableAllButtons();
+    document.addEventListener('keydown', handleKeyPress);
 }
-
-
 
 function enableAllButtons() {
     let buttons = document.querySelectorAll(".button");
@@ -84,7 +78,7 @@ function addPauseButton() {
     let timerContainer = document.querySelector(".timer-container");
     let pauseButton = document.createElement("button");
     pauseButton.setAttribute("id", "pauseButton");
-    pauseButton.setAttribute("class", "clear-button"); 
+    pauseButton.setAttribute("class", "clear-button");
     pauseButton.textContent = "Pause Timer";
     pauseButton.addEventListener("click", toggleTimer);
     timerContainer.appendChild(pauseButton);
@@ -98,6 +92,7 @@ function removePauseButton() {
         pauseButtonAdded = false;
     }
 }
+
 function toggleTimer() {
     if (timerStarted) {
         clearInterval(timerInterval);
@@ -111,42 +106,27 @@ function toggleTimer() {
     }
 }
 
-
-
 function generateTargetNumber() {
     let min, max;
-    if (difficulty == "Easy") {
-        min = 1;
-        max = 100;
-    }
-    else if (difficulty == "Medium"){
-        min = 100;
-        max = 300;
-    }
-    else if (difficulty == "Hard"){
-        min = 300;
-        max = 1000;     
-    }
-
+    min = 1;
+    max = 100;
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-
-let targetNumber = generateTargetNumber(); 
+let targetNumber = generateTargetNumber();
 
 function updateTargetDisplay() {
     document.getElementById('challenge').innerText = `Make ${targetNumber}`;
 }
 
-
 function setDifficulty(newDifficulty) {
-    usedDigits.clear(); 
-    currentExpression = ''; 
+    usedDigits.clear();
+    currentExpression = '';
     difficulty = newDifficulty;
-    targetNumber = generateTargetNumber(); 
-    updateTargetDisplay(); 
-    document.getElementById('expression').innerText = ''; 
-    document.getElementById('result').innerText = ''; 
+    targetNumber = generateTargetNumber();
+    updateTargetDisplay();
+    document.getElementById('expression').innerText = '';
+    document.getElementById('result').innerText = '';
 }
 
 function appendToExpression(char) {
@@ -172,6 +152,11 @@ function appendToExpression(char) {
         return;
     }
 
+    if (!isNaN(char) && !isNaN(lastChar)) {
+        alert("Cannot combine digits.");
+        return;
+    }
+
     currentExpression += char;
     document.getElementById('expression').innerText = currentExpression;
 }
@@ -182,15 +167,6 @@ function clearExpression() {
     usedDigits.clear();
     document.getElementById('expression').innerText = '';
     document.getElementById('result').innerText = '';
-}
-
-function checkAllDigitsUsedOnce() {
-    for (let digit = 1; digit <= 9; digit++) {
-        if (!usedDigits.has(digit.toString())) {
-            return false; 
-        }
-    }
-    return true; 
 }
 
 function deleteLastDigit() {
@@ -205,8 +181,8 @@ function deleteLastDigit() {
 }
 
 function checkAnswer() {
-    if (!checkAllDigitsUsedOnce()) {
-        document.getElementById('result').innerText = "You must use all digits from 1-9 exactly once.";
+    if (usedDigits.size < 4) {
+        document.getElementById('result').innerText = "You must use at least 4 unique digits.";
         return;
     }
 
@@ -231,10 +207,12 @@ function checkAnswer() {
         const evaluatedResult = math.evaluate(currentExpression);
         document.getElementById('result').innerText = `Your expression evaluates to: ${evaluatedResult}`;
         if (Math.abs(evaluatedResult - targetNumber) < 1e-4) {
-            alert(`Correct! Your expression matches the target number: ${evaluatedResult}`);
+            // New target number is generated only in beginner mode
+            if (difficulty === 'Easy') {
+                targetNumber = generateTargetNumber();
+                updateTargetDisplay();
+            }
             clearExpression();
-            targetNumber = generateTargetNumber();
-            updateTargetDisplay();
         } else {
             alert(`Close! Your expression evaluates to: ${evaluatedResult}, but the target was ${targetNumber}. Try again.`);
         }
@@ -250,7 +228,7 @@ document.addEventListener('keydown', handleKeyPress);
 
 function handleKeyPress(event) {
     if (timerStarted) {
-        const key = event.key; 
+        const key = event.key;
         if (key >= '0' && key <= '9') {
             appendToExpression(key);
         } else if (key === '+' || key === '-' || key === '*' || key === '/' || (event.shiftKey && key === '^')) {
@@ -274,5 +252,3 @@ function handleKeyPress(event) {
         }
     }
 }
-
-
