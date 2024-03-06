@@ -1,33 +1,50 @@
 body {
   background-color: #282828;
-  margin: 0;
-  padding: 0;
+  margin: 10;
+  padding: 20;
+  font-family: 'Outfit', sans-serif;
+  font-weight: bolder; 
+  font-size: large;
+  text-align: center;
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-top: 150px;
 }
 
 .login-container {
+  color: #FFFFFF;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(214, 214, 214, 0.9);
+  max-width: 500px;
+  align-items: center;
+  font-family: 'Lexend', sans-serif;
+  font-weight: bolder; 
+  font-size: large;
 }
 
 input[type="text"],
 input[type="password"],
 button {
   display: block;
+  font-family: 'Lexend', sans-serif;
   width: calc(100% - 20px);
-  margin: 10px auto;
+  margin: 30px auto;
   padding: 10px;
+  color: #FFFFFF;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 button {
-  background-color: green; 
+  background-color: rgb(189, 107, 255); 
   color: #FFFFFF;
   border: none;
+  border-radius: 30px;
   cursor: pointer;
+  font-family: 'Lexend', sans-serif;
+  font-weight: bold; 
+  font-size: large;
 }
 
 button:hover {
