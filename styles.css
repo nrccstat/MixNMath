@@ -362,3 +362,28 @@ body {
     background-color: #5B9760;
 }
 
+#login {
+    border: none;
+    padding: 25px;
+    margin: 0px;
+    color: lightpink ; 
+    background-color: #282828; 
+    font-family: 'Lexend', sans-serif;
+    font-weight: bolder; 
+    font-size: large;
+}
+
+#login:hover {
+    border: none;
+    margin: 0px;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: lightpink; 
+    font-family: 'Lexend', sans-serif;
+    font-weight: bolder; 
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+
