@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <nav class="navbar">
+                <div class="math-menu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                <div class="nav-menu hide">
+                    <a href="login.html"><button id = "login" class = "mode-button">Login</button></a>
+                    <a href="beginner.html"><button id="begin" class="mode-button">Beginner</button></a>
+                    <a href="daily.html"><button id="daily" class="mode-button">Daily</button></a>
+                    <a href="expert.html"><button id="expert" class="mode-button">Expert</button></a>
+                </div>
+            </nav>
+        </header>
+        <div class= "top"> 
+            <img src="mnmlogo.png" id="mnmlogo" alt="mnmlogo" width="400" height="60">
+        </div>
+        <div class="login-container">
+            <h2>Sign Up</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button id= "submit" type="submit"> Sign Up</button>
+            </form>
+            <p id="message"></p>
+        </div>
+        <p id="suprompt"> Already Have an account? <a href="default.asp" id="sulink">Log In</a></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
