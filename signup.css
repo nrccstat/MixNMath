@@ -31,7 +31,7 @@ body {
   margin: 10px;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 0 15px rgba(214, 214, 214, 0.9);
+  box-shadow: 0 0 15px rgba(240, 204, 255, 0.9);
   max-width: 500px;
   border-radius: 10px;
   max-width: 500px;
@@ -68,8 +68,8 @@ input[type="password"],
 
 }
 button {
-  background-color: rgb(189, 107, 255); 
-  color: #FFFFFF;
+  background-color: rgb(248, 255, 148); 
+  color: #303030;
   border: none;
   cursor: pointer;
   font-family: 'Outfit', sans-serif;
