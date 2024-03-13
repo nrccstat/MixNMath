@@ -8,10 +8,39 @@
     <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
 
+    <style>
+        .how-to-play {
+            font-size: 32px;
+            color: grey; 
+            text-decoration: none;
+            animation: glow 2s infinite alternate; 
+            transition: color 0.1s; 
+            position: absolute;
+            top: 100px;
+            right: 20px;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px grey; 
+            }
+            100% {
+                box-shadow: 0 0 50px grey; 
+            }
+        }
+
+        .how-to-play:hover {
+            color: white; 
+        }    
+    </style>
 </head>
 <body>
     <div class="game-container">
         <header>
+            <div class="header-right">
+                <a href="rules.html" class="how-to-play">Game Rules</a>
+            </div>
+
             <nav class="navbar">
                 <div class="math-menu">
                     <span class="line"></span>
@@ -19,14 +48,14 @@
                     <span class="line"></span>
                 </div>
                 <div class="nav-menu hide">
-                    <a href="login.html"><button id = "login" class = "mode-button">Login</button></a>
+                    <a href="login.html"><button id="login" class="mode-button">Login</button></a>
                     <a href="beginner.html"><button id="begin" class="mode-button">Beginner</button></a>
                     <a href="daily.html"><button id="daily" class="mode-button">Daily</button></a>
                     <a href="expert.html"><button id="expert" class="mode-button">Expert</button></a>
                 </div>
             </nav>
         </header>
-        <div class= "top"> 
+        <div class="top"> 
             <img src="mnmlogo.png" id="mnmlogo" alt="mnmlogo" width="400" height="60">
         </div>
         <div class="login-container">
@@ -34,7 +63,7 @@
             <form id="loginForm">
                 <input type="text" id="username" placeholder="Username" required>
                 <input type="password" id="password" placeholder="Password" required>
-                <button id= "submit" type="submit"> Login</button>
+                <button id="submit" type="submit"> Login</button>
             </form>
             <p id="message"></p>
         </div>
