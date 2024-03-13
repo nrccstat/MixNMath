@@ -11,6 +11,21 @@
         #challenge {
             display: none;
         }
+
+        .timer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .score-container {
+            margin-top: 20px; 
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -68,8 +83,10 @@
     <div id="timer" class="timer-element">1:00:00</div>
     <button id="startButton" class="start-button" onclick="startTimer()">Start Game</button>
     <button id="pauseButton" class="button clear-button" style="display: none;" onclick="toggleTimer()">Next Game</button>
+    <div class="score-container">
+        <div id="scoreDisplay" class="score-display">Score: 0</div>
+    </div>
 </div>
 <script src="beginner.js"></script>
 </body>
 </html>
-
