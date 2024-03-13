@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Rules</title>
+    <link rel="stylesheet" href="login.css">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+    <style>
+      .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left; 
+        }
+      .textbox {
+            width: 1000px;
+            height: 500px; 
+            margin: 20px auto; 
+            background-color: rgba(0, 0, 0, 0.374); 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box; 
+            outline: none; 
+            resize: none; 
+            overflow-y: auto;
+            color: white; 
+            font-family: 'Outfit', 'Lexend', Courier, monospace; 
+
+        .textbox::placeholder {
+            color: white; 
+            font-family: Courier, monospace; 
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <nav class="navbar">
+                <div class="math-menu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                <div class="nav-menu hide">
+                    <a href="login.html"><button id="login" class="mode-button">Login</button></a>
+                    <a href="beginner.html"><button id="begin" class="mode-button">Beginner</button></a>
+                    <a href="daily.html"><button id="daily" class="mode-button">Daily</button></a>
+                    <a href="expert.html"><button id="expert" class="mode-button">Expert</button></a>
+                </div>
+            </nav>
+        </header>
+        <div class="top"> 
+            <img src="mnmlogo.png" id="mnmlogo" alt="mnmlogo" width="400" height="60">
+        </div>
+        <div class="rules-container">
+            <!-- Gray background textbox with the game rules -->
+            <textarea id="textbox" class="textbox" readonly placeholder=
+            "Rules:
+
+            
+Beginner:
+            
+In the Beginner mode, you have 1 minute to solve each challenge. You must use at least 4 distinct digits separated by operators to make the target number. Make the target number with the given digits and operators. Your score updates every time you successfully solve a challenge. After you solve a challenge, the next number pops up for you to solve. If you successfully solve a challenge, your score gets added to the top 10 leaderboard.
+
+            
+Daily:
+            
+In the Daily mode, each day, a random number is generated for you to solve. You can only use the digits and operators specified for that day. Your goal is to make the target number using the provided digits and operators.
+
+            
+Expert:
+            
+In the Expert mode, you must use all digits from 1 to 9 to solve the challenges. You can combine digits to make larger numbers. The Expert mode offers three difficulty levels: Easy, Medium, and Hard, each with its own set of challenges and rules."
+            ></textarea>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
