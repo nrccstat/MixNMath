@@ -4,6 +4,7 @@ let usedDigits = new Set();
 let timerInterval;
 let timerStarted = false;
 let pauseButtonAdded = false;
+let score = 0; // New variable to track score
 
 function startTimer() {
     timerStarted = true;
@@ -41,14 +42,25 @@ function startTimer() {
             document.getElementById("startButton").style.backgroundColor = "#ff8f8f";
             document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #8F4949)";
             document.getElementById("challenge").style.display = "none";
+
+            // Remove animation class when timer ends
+            document.body.classList.remove('bg-animation');
         }
     }, 10);
 
     document.getElementById("startButton").setAttribute("onclick", "resetTimer()");
     document.getElementById("startButton").style.backgroundColor = "";
 
+    // Add animation class when timer starts
+    document.body.classList.add('bg-animation');
+
     enableFeatures();
+
+    // Generate new target number when starting timer
+    targetNumber = generateTargetNumber();
+    updateTargetDisplay();
 }
+
 
 function resetTimer() {
     clearInterval(timerInterval);
@@ -59,7 +71,39 @@ function resetTimer() {
     document.getElementById("startButton").setAttribute("onclick", "startTimer()");
     timerStarted = false;
     removePauseButton();
-    updateTargetDisplay();
+    targetNumber = generateTargetNumber(); 
+    updateTargetDisplay(); 
+    
+    document.body.classList.remove('bg-animation');
+
+    
+    document.getElementById('scoreDisplay').innerText = 'Score: 0';
+}
+
+function incrementScore() {
+    score++;
+    updateScoreDisplay(); 
+}
+
+function resetScore() {
+    score = 0;
+    updateScoreDisplay(); 
+}
+
+function updateScoreDisplay() {
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    scoreDisplay.textContent = 'Score: ' + score;
+}
+
+function startGame() {
+    document.body.classList.add('bg-animation');
+    score = 0; 
+
+    setTimeout(function() {
+        document.body.classList.remove('bg-animation');
+    }, 1000);
+
+    startTimer();
 }
 
 function enableFeatures() {
@@ -161,7 +205,6 @@ function appendToExpression(char) {
     document.getElementById('expression').innerText = currentExpression;
 }
 
-
 function clearExpression() {
     currentExpression = '';
     usedDigits.clear();
@@ -207,12 +250,12 @@ function checkAnswer() {
         const evaluatedResult = math.evaluate(currentExpression);
         document.getElementById('result').innerText = `Your expression evaluates to: ${evaluatedResult}`;
         if (Math.abs(evaluatedResult - targetNumber) < 1e-4) {
-            // New target number is generated only in beginner mode
             if (difficulty === 'Easy') {
                 targetNumber = generateTargetNumber();
                 updateTargetDisplay();
             }
             clearExpression();
+            incrementScore(); 
         } else {
             alert(`Close! Your expression evaluates to: ${evaluatedResult}, but the target was ${targetNumber}. Try again.`);
         }
@@ -221,7 +264,6 @@ function checkAnswer() {
         console.error("Error evaluating expression:", error);
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', updateTargetDisplay);
 document.addEventListener('keydown', handleKeyPress);
@@ -244,6 +286,7 @@ function handleKeyPress(event) {
                 alert("Invalid operator usage.");
                 return;
             }
+            event.preventDefault(); 
             checkAnswer();
         } else if (key === 'Backspace') {
             deleteLastDigit();
