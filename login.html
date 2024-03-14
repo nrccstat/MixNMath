@@ -10,22 +10,27 @@
 
     <style>
         .how-to-play {
-            font-size: 32px;
-            color: grey; 
+            font-size: 30px;
+            border-style: solid;
+            border-color: #808080;
+            border-width: 3px;
+            padding: 10px;
+            border-radius: 10px;
+            color: rgb(184, 184, 184); 
             text-decoration: none;
             animation: glow 2s infinite alternate; 
             transition: color 0.1s; 
             position: absolute;
-            top: 100px;
-            right: 20px;
+            top: 110px;
+            right: calc(7.5%);
         }
 
         @keyframes glow {
             0% {
-                box-shadow: 0 0 5px grey; 
+                box-shadow: 0 0 10px grey; 
             }
             100% {
-                box-shadow: 0 0 50px grey; 
+                box-shadow: 0 0 20px grey; 
             }
         }
 
