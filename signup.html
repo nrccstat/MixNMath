@@ -7,7 +7,55 @@
     <link rel="stylesheet" href="signup.css">
     <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+    <style>
+        input[type="text"],
+        input[type="password"] {
+            color: white;
+            background-color: #302F31; 
+            padding-right: 30px; 
+        }
 
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #808080;
+            transition: color 0.3s; 
+        }
+
+        .eye-icon:hover {
+            color: #606060; 
+        }
+
+        .closed-eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #808080;
+            transition: color 0.3s; 
+        }
+
+        .closed-eye-icon:hover {
+            color: #606060; 
+        }
+
+        .password-container {
+            position: relative; 
+        }
+
+        input[type="password"]::-ms-reveal,
+        input[type="password"]::-webkit-reveal {
+            display: none;
+        }
+
+        .game-container {
+            position: relative; 
+        }
+    </style>
 </head>
 <body>
     <div class="game-container">
@@ -33,13 +81,36 @@
             <h2>Sign Up</h2>
             <form id="loginForm">
                 <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <svg class="eye-icon" onclick="togglePasswordVisibility()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 3c-7.18 0-10 8-10 8s2.82 8 10 8 10-8 10-8-2.82-8-10-8zM12 16c-2.24 0-4-1.76-4-4s1.76-4 4-4 4 1.76 4 4-1.76 4-4 4zm0-6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>
+                    <svg class="closed-eye-icon" onclick="togglePasswordVisibility()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor" d="M12 3c-7.18 0-10 8-10 8s2.82 8 10 8 10-8 10-8-2.82-8-10-8zM12 16c-2.24 0-4-1.76-4-4s1.76-4 4-4 4 1.76 4 4-1.76 4-4 4zm0-6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                        <line x1="3" y1="2" x2="21" y2="20" stroke="currentColor" stroke-width="2"/>
+                    </svg>    
+                </div>
                 <button id= "submit" type="submit"> Sign Up</button>
             </form>
             <p id="message"></p>
         </div>
         <p id="suprompt"> Already Have an account? <a href="login.html" id="sulink">Log In</a></p>
     </div>
-    <script src="script.js"></script>
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const eyeIcon = document.querySelector(".eye-icon");
+            const closedEyeIcon = document.querySelector(".closed-eye-icon");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.style.display = "none";
+                closedEyeIcon.style.display = "block";
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.style.display = "block";
+                closedEyeIcon.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
