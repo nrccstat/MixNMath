@@ -26,6 +26,22 @@
         .score-display {
             font-size: 16px;
         }
+
+        .bg-animation {
+            animation: changeBackground 1s ease-in-out forwards;
+        }
+
+        @keyframes changeBackground {
+            0% {
+                background-color: #000;
+            }
+            50% {
+                background-color: #ff8f8f;
+            }
+            100% {
+                background-color: #000;
+            }
+        }
     </style>
 </head>
 <body>
@@ -81,12 +97,23 @@
 <div class="timer-container">
     <img src="image (20).png" alt="timer1" class="tim1" width="30" height="40">
     <div id="timer" class="timer-element">1:00:00</div>
-    <button id="startButton" class="start-button" onclick="startTimer()">Start Game</button>
+    <button id="startButton" class="start-button" onclick="startGame()">Start Game</button>
     <button id="pauseButton" class="button clear-button" style="display: none;" onclick="toggleTimer()">Next Game</button>
     <div class="score-container">
         <div id="scoreDisplay" class="score-display">Score: 0</div>
     </div>
 </div>
 <script src="beginner.js"></script>
+<script>
+    function startGame() {
+        document.body.classList.add('bg-animation');
+
+        setTimeout(function() {
+            document.body.classList.remove('bg-animation');
+        }, 1000);
+
+        startTimer();
+    }
+</script>
 </body>
 </html>
