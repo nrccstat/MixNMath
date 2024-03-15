@@ -19,8 +19,11 @@ function setupDailyMode() {
     document.querySelector('.difficulty-buttons').style.display = 'none'; // Hide difficulty buttons
     updateTargetNumberAndDisplay();
 
+    document.getElementById('challenge').style.display = 'block';
+
     scheduleDailyReset();
 }
+
 
 function updateTargetNumberAndDisplay() {
     targetNumber = generateTargetNumberForDaily();
