@@ -7,58 +7,42 @@ let pauseButtonAdded = false;
 let score = 0; // New variable to track score
 
 function startTimer() {
+    clearInterval(timerInterval); // Ensure any existing timer is cleared
     timerStarted = true;
-
-    document.getElementById("challenge").style.display = "block";
+    document.getElementById("challenge").style.display = "block"; // Ensure challenge is visible
+    document.getElementById("timer").style.display = "block"; // Make sure the timer is visible
 
     let timerDisplay = document.getElementById("timer");
-    let time = timerDisplay.textContent.split(":");
-    let minutes = parseInt(time[0]);
-    let seconds = parseInt(time[1]);
-    let msec = parseInt(time[2]);
-
-    let totalTime = minutes * 6000 + seconds * 100 + msec;
+    timerDisplay.textContent = "1:00:00"; // Set to one minute
+    let totalTime = 6000; // Set totalTime for one minute
 
     timerInterval = setInterval(function () {
         totalTime--;
         if (totalTime >= 0) {
-            minutes = Math.floor(totalTime / 6000);
-            seconds = Math.floor((totalTime % 6000) / 100);
-            msec = totalTime % 100;
+            let minutes = Math.floor(totalTime / 6000);
+            let seconds = Math.floor((totalTime % 6000) / 100);
+            let msec = totalTime % 100;
 
             let formattedTime =
-                (minutes < 10 ? "0" : "") +
-                minutes +
-                ":" +
-                (seconds < 10 ? "0" : "") +
-                seconds +
-                ":" +
-                (msec < 10 ? "0" : "") +
-                msec;
+                (minutes < 10 ? "0" : "") + minutes + ":" +
+                (seconds < 10 ? "0" : "") + seconds + ":" +
+                (msec < 10 ? "0" : "") + msec;
             timerDisplay.textContent = formattedTime;
         } else {
             clearInterval(timerInterval);
-            document.getElementById("startButton").textContent = "Reset Timer";
-            document.getElementById("startButton").style.backgroundColor = "#ff8f8f";
-            document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #8F4949)";
-            document.getElementById("challenge").style.display = "none";
-
-            // Remove animation class when timer ends
-            document.body.classList.remove('bg-animation');
+            alert("Time's up! Resetting the game.");
+            resetTimer(); // Call resetTimer to reset the game
         }
     }, 10);
 
+    document.getElementById("startButton").textContent = "Reset Timer";
+    document.getElementById("startButton").style.backgroundColor = "#007bff"; // Blue color for reset button
+    document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #0267d4)";
     document.getElementById("startButton").setAttribute("onclick", "resetTimer()");
-    document.getElementById("startButton").style.backgroundColor = "";
-
-    // Add animation class when timer starts
-    document.body.classList.add('bg-animation');
 
     enableFeatures();
-
-    // Generate new target number when starting timer
-    targetNumber = generateTargetNumber();
-    updateTargetDisplay();
+    targetNumber = generateTargetNumber(); // Generate a new target number each time the game starts
+    updateTargetDisplay(); // Update the display with the new target number
 }
 
 
@@ -67,18 +51,17 @@ function resetTimer() {
     document.getElementById("timer").textContent = "1:00:00";
     document.getElementById("startButton").textContent = "Start Timer";
     document.getElementById("startButton").style.backgroundColor = ""; // Reset button color
-    document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #48804E)"
+    document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #48804E)";
     document.getElementById("startButton").setAttribute("onclick", "startTimer()");
     timerStarted = false;
     removePauseButton();
-    targetNumber = generateTargetNumber(); 
-    updateTargetDisplay(); 
-    
-    document.body.classList.remove('bg-animation');
-
-    
-    document.getElementById('scoreDisplay').innerText = 'Score: 0';
+    resetScore() // Reset score
+    updateScoreDisplay(); // Update the score display to reflect the reset
+    targetNumber = generateTargetNumber();
+    updateTargetDisplay();
+    document.getElementById('challenge').innerText = ``;
 }
+
 
 function incrementScore() {
     score++;
