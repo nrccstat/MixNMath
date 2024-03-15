@@ -60,11 +60,43 @@
         .game-container {
             position: relative; 
         }
+
+        .how-to-play {
+            font-size: 30px;
+            border-style: solid;
+            border-color: #808080;
+            border-width: 3px;
+            padding: 10px;
+            border-radius: 10px;
+            color: rgb(184, 184, 184); 
+            text-decoration: none;
+            animation: glow 2s infinite alternate; 
+            transition: color 0.1s; 
+            position: absolute;
+            top: 110px;
+            right: calc(7.5%);
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px grey; 
+            }
+            100% {
+                box-shadow: 0 0 20px grey; 
+            }
+        }
+
+        .how-to-play:hover {
+            color: white; 
+        } 
     </style>
 </head>
 <body>
     <div class="game-container">
         <header>
+            <div class="header-right">
+                <a href="rules.html" class="how-to-play">Game Rules</a>
+            </div>
             <nav class="navbar">
                 <div class="math-menu">
                     <span class="line"></span>
