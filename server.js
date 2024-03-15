@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 const port = 3000;
 
-// Replace the following with your MongoDB connection string
+
 const dbUri = "mongodb+srv://kritan:Historic1212b@@cluster0.hmfaqnj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const dbName = "MixNMath";
 
