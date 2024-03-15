@@ -42,6 +42,20 @@
                 background-color: #000;
             }
         }
+        .close-help {
+            float: right;
+            cursor: pointer;
+            }
+
+        .help-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 101;
+        }
     </style>
 </head>
 <body>
@@ -103,6 +117,12 @@
         <div id="scoreDisplay" class="score-display">Score: 0</div>
     </div>
 </div>
+
+<div id="helpWindow" class="help-window">
+    <p>Help text goes here</p>
+</div>
+<button id="helpIcon" class="help-icon">?</button>
+
 <script src="beginner.js"></script>
 <script>
     function startGame() {
@@ -114,6 +134,23 @@
 
         startTimer();
     }
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const helpIcon = document.getElementById('helpIcon');
+        const helpWindow = document.getElementById('helpWindow');
+
+        helpIcon.addEventListener('click', function() {
+            // Toggle display state based on current visibility
+            if (helpWindow.style.display === 'block') {
+                helpWindow.style.display = 'none';
+            } else {
+                helpWindow.style.display = 'block';
+            }
+        });
+    });
+
 </script>
+
 </body>
 </html>
