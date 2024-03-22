@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Leaderboard Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .leaderboard-container {
+            margin: 20px;
+            padding: 20px;
+        }
+        .leaderboard-header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .rank {
+            font-weight: bold;
+        }
+        .username, .score {
+            margin: 0 10px;
+        }
+        .leaderboard-headers .leaderboard-item {
+            background-color: #f2f2f2; /* Light grey background for headers */
+            border-bottom: 2px solid #000; /* Thicker, solid bottom border */
+        }
+        .rank-header, .username-header, .score-header {
+            font-weight: bold; /* Ensure the headers are bold */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="math-menu">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div class="nav-menu hide">
+            <a href="login.html"><button id="login" class="mode-button">Login</button></a>
+            <a href="beginner.html"><button id="begin" class="mode-button">Beginner</button></a>
+            <a href="daily.html"><button id="daily" class="mode-button">Daily</button></a>
+            <a href="expert.html"><button id="expert" class="mode-button">Expert</button></a>
+        </div>
+    </nav>
+</header>
+
+<div class="leaderboard-container">
+    <div class="leaderboard-header">Leaderboard</div>
+    <div class="leaderboard-headers">
+        <div class="leaderboard-item">
+            <span class="rank-header"><strong>Rank</strong></span>
+            <span class="username-header"><strong>Username</strong></span>
+            <span class="score-header"><strong>Score</strong></span>
+        </div>
+    </div>
+    <div id="leaderboard"></div>
+</div>
+<script src="leaderboard.js"></script>
+
+</body>
+</html>
