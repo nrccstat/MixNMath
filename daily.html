@@ -94,6 +94,25 @@
         #challenge {
             display: none;
         }
+        .help-window {
+            display: none;
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #363636;
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            z-index: 102;
+            animation: popupAnimation 0.5s ease forwards;
+            font-size: medium;
+        }
+        .help-text{
+            font-family: "Lexend";
+            font-weight: 100;
+        }
     </style>
 </head>
 <body>
@@ -110,7 +129,6 @@
                 <a href="beginner.html"><button id="begin" class="mode-button">Beginner</button></a>
                 <a href="daily.html"><button id="daily" class="mode-button">Daily</button></a>
                 <a href="expert.html"><button id="expert" class="mode-button">Expert</button></a>
-                <a href="leaderboard.html"><button id="expert" class="mode-button">Leaderboard</button></a>
             </div>
         </nav>
     </header>
@@ -144,10 +162,13 @@
     <button class="button submit-button" onclick="checkAnswer()">Submit</button>
     <div id="result" class="result-display"></div>
 </div>
+</div>
+<div class="question-mark" onclick="toggleHelpPopup()">
+<img src="ques.png" alt="ques" width="30" height="30">
+</div>
+</div>
 
-<div class="question-mark" onclick="toggleHelpPopup()">?</div>
-
-<div id="helpWindow" class="question-mark-popup">
+<div id="helpWindow" class="help-window">
     <span class="close-help" onclick="toggleHelpPopup()">&times;</span>
     <p>In the Daily mode, each day, a random number is generated for you to solve. You have to use at least 5 unique digits and 3 unique operators and make the target number.
     </p>
