@@ -1,0 +1,481 @@
+*{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    }
+    
+
+body {
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #302F31;
+    font-family: 'Lexend', sans-serif;
+    color: #c2ff9a;
+    overflow: auto;
+}
+.title {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lexend', sans-serif;
+    color: #c2ff9a;
+    font-size:2cm;
+}
+.timer-element{
+    font-family: 'Lexend', sans-serif; 
+    color: #c2ff9a;
+    font-size:2cm;
+}
+.game-container {
+    background-color: #302F31;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 1920px;
+    max-height: 1080;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar {
+    background-color: #282828;
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    text-align: center;
+    max-width:100%;
+    max-height: 2080;
+    width: 100vw;
+    height: 100%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #4C4452;
+}
+
+.difficulty-buttons {
+    margin-bottom: 20px;
+}
+.difficulty-button:hover {
+    color: #ffffff;
+}
+
+.difficulty-button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    color: #302F31;
+    font-size: med;
+}
+
+#basic {
+    margin: 20px 5px;
+    background-color: #85db8e; /* Green */
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+}
+
+
+
+#medium {
+    margin: 20px 5px;
+    background-color: hsl(207, 100%, 81%); /* Blue */
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+}
+
+#hard {
+    margin: 20px 5px;
+    background-color: #ffaaa3; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+}
+
+#begin {
+    border: none;
+    padding: 25px;
+    margin: 0px;
+    color: #C5FFB7;
+    background-color: #282828; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font: bolder;
+    font-size:large;
+}
+#begin:hover {
+    border: none;
+    margin: 0px;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #C5FFB7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+#daily:hover {
+    border: none;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #FFFCB7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+#daily:active {
+    border: none;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #FFFCB7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+#expert:hover {
+    border: none;
+    margin: 0px;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: #ffb7b7; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font:bolder;
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+@keyframes zoom-in {
+    0% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1.1, 1.1);
+    }
+  }
+#daily {
+    border: none;
+    padding: 25px;
+    margin:0px;
+    color: #FFFCB7;
+    background-color: #282828; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+    font-size:large;
+}
+
+#expert {
+    border: none;
+    padding: 25px;
+    margin: 0px;
+    color: #ffb7b7;
+    background-color: #282828; /* Red */
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+    font-size:large;
+}
+.title {
+    margin: 10px 0;
+    color: pink;
+}
+
+.level-display {
+    margin: 10px 0;
+}
+
+.input-display {
+    min-height: 50px;
+    background-color: #111;
+    border-radius: 25px;
+    padding: 40px;
+    margin-bottom: 20px;
+    margin-left:250px;
+    margin-right:250px;
+    font-size: xx-large;
+}
+.input-display:hover {
+ border-style: solid;
+ border-width: 5px;
+ transition: 0.2s;
+ border-color: rgb(240, 255, 108);
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    padding: 17px;
+    margin: 7px;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+
+}
+
+.button:hover {
+    background-color:#747474;
+    color:#ffffff;
+    transition: 0.5s;
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+    filter: drop-shadow(-5px 0px 0px #494949);
+}
+
+.button:focus {
+    transition: 0.5s;
+    font-family: 'Lexend', sans-serif;
+    font: bold;
+    animation: pulse;
+    animation-duration: 0.5s;
+}
+
+.submit-button{
+
+    background-color: #68AE6F;
+    font-family: 'Lexend', sans-serif;
+    filter: drop-shadow(-5px 0px 0px #48804E);
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.clear-button{
+    background-color: #ff8f8f;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 800;
+    color: #FFFFFF;
+    filter: drop-shadow(-5px 0px 0px #8F4949);
+}
+.backspace{
+    background-color: #808080;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 800;
+    color: #FFFFFF;
+    filter: drop-shadow(-5px 0px 0px #505050);
+}
+#my{
+    zoom: 500%;
+    }
+
+.number{
+    background-color: #B499FF;
+    width: 60px;
+    color: #FFFFFF;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 800;
+    font-size: x-large;
+    filter: drop-shadow(-5px 0px 0px #7B758A);
+}
+
+.operator{
+    background-color: #a5c2ff;
+    width: 50px;
+    color: #FFFFFF;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 800;
+    font-size: large;
+    filter: drop-shadow(-5px 0px 0px #546981);
+}
+
+.result-display{
+ animation: headShake;
+ animation-duration: 0.5s;
+}
+
+body {
+    font-family: 'Lexend';
+    font-size: 22px;
+}
+
+.timer-container {
+    position: fixed;
+    top: 120px; /* Adjust as needed */
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.timer-element {
+    color: #FFFAD0;
+    font-size: 40px; /* Twice the original size */
+    font-family: 'Lexend';
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.tim1:hover{
+    color: #ff0000;
+}
+
+
+body {
+    font-family: 'Lexend';
+    font-size: 22px;
+}
+
+.timer-container {
+    position: fixed;
+    top: 120px; /* Adjust as needed to lower */
+    right: 50px; /* Adjust as needed to move left */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.timer-element {
+    color: #FFFAD0;
+    font-size: 40px;
+    font-family: 'Lexend';
+    font-weight: 400;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.start-button {
+    background-color: #68AE6F;
+    font-family: 'Lexend', sans-serif;
+    filter: drop-shadow(-5px 0px 0px #48804E);
+    font-weight: 800;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.start-button:hover {
+    background-color: #5B9760;
+}
+
+#login {
+    border: none;
+    padding: 25px;
+    margin: 0px;
+    color: lightpink ; 
+    background-color: #282828; 
+    font-family: 'Lexend', sans-serif;
+    font-weight: bolder; 
+    font-size: large;
+}
+
+#login:hover {
+    border: none;
+    margin: 0px;
+    transition-duration: 0.5s;
+    color: #282828;
+    background-color: lightpink; 
+    font-family: 'Lexend', sans-serif;
+    font-weight: bolder; 
+    animation: zoom-in 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+.textbox {
+    width: 95%;
+    height: 300px; 
+    margin: 20px auto; 
+    background-color: rgba(0, 0, 0, 0.374); 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box; 
+    outline: none; 
+    resize: none; 
+    overflow-y: auto; 
+}
+
+
+
+
+
+.math-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+}
+
+.line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+.mode-button {
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.leaderboard-container {
+    margin-top: 60px; /* Adjusted margin top to make space for the navbar */
+    padding: 20px;
+    background-color: #302F31;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: white; /* Added text color for better visibility */
+}
+
+.leaderboard-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+}
+
+.rank-header, .username-header, .score-header {
+    flex: 1; /* Each header takes equal space */
+    text-align: center; /* Center-align text */
+    font-weight: bold; /* Bold font */
+    background-color: #f2f2f2; /* Header row background color */
+    border-bottom: 2px solid #000; /* Header row bottom border */
+    border-radius: 10px 10px 0 0; /* Rounded corners for the top header row */
+}
+
+.rank, .username, .score {
+    flex: 1; /* Each data cell takes equal space */
+    text-align: center; /* Center-align text */
+    background-color: #fff; /* Background color for data rows */
+    border-bottom: 1px solid #ccc; /* Data row bottom border */
+    border-radius: 0 0 10px 10px; /* Rounded corners for data rows */
+}
+
+/* Additional styles for individual cells */
+.rank, .username, .score,
+.rank-header, .username-header, .score-header {
+    padding: 10px; /* Padding for each cell */
+    font-weight: bold; /* Bold font for better visibility */
+}
+
+.username, .score {
+    margin: 0 10px; /* Margin between cells */
+}
