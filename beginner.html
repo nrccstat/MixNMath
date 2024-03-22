@@ -86,8 +86,27 @@
             100% {
                 background-color: #000;
             }
-        }
 
+        }
+        .help-window {
+            display: none;
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #363636;
+            color: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            z-index: 102;
+            animation: popupAnimation 0.5s ease forwards;
+            font-size: medium;
+        }
+        .help-text{
+            font-family: "Lexend";
+            font-weight: 100;
+        }
         /* Added margin to score display */
         .score-display {
             margin-top: 20px; /* Adjust this value as needed */
@@ -157,11 +176,13 @@
     <div class="score-container">
         <div id="scoreDisplay" class="score-display">Score: 0</div>
     </div>
+    <div class="question-mark" onclick="toggleHelpPopup()">
+        <img src="ques.png" alt="ques" width="30" height="30">
+        </div>
 </div>
 
-<div class="question-mark" onclick="toggleHelpPopup()">?</div>
 
-<div id="helpWindow" class="question-mark-popup">
+<div id="helpWindow" class="help-window">
     <span class="close-help" onclick="toggleHelpPopup()">&times;</span>
     <p>In the Beginner mode, you have 1 minute to solve each challenge. You must use at least 4 distinct digits separated by operators to make the target number. Make the target number with the given digits and operators. Your score updates every time you successfully solve a challenge. After you solve a challenge, the next number pops up for you to solve. If you successfully solve a challenge, your score gets added to the top 10 leaderboard.
     </p>
