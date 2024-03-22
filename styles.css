@@ -279,6 +279,7 @@ body {
     font-size: x-large;
     filter: drop-shadow(-5px 0px 0px #7B758A);
 }
+
 .operator{
     background-color: #a5c2ff;
     width: 50px;
@@ -401,4 +402,27 @@ body {
     overflow-y: auto; 
 }
 
+.action-buttons{
+    padding-bottom: 3rem;
+}
 
+
+
+
+
+#background-svg {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+.question-mark {
+    position: fixed;
+    bottom: 10px; /* Adjusted bottom position */
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 101;
+}
