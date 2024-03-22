@@ -3,58 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
     <title>Leaderboard Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .leaderboard-container {
-            margin-top: 80px; /* Adjust this value based on the actual navbar height plus desired spacing */
-            padding: 20px;
-            background-color: #302F31; /* To match the page's background color */
-            border-radius: 10px;
-            box-sizing: border-box;
-        }
-
-        .leaderboard-header {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .leaderboard-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-        .rank {
-            font-weight: bold;
-        }
-        .username, .score {
-            margin: 0 10px;
-        }
-        .leaderboard-headers .leaderboard-item {
-            background-color: #f2f2f2; /* Light grey background for headers */
-            border-bottom: 2px solid #000; /* Thicker, solid bottom border */
-        }
-        .rank-header, .username-header, .score-header {
-            font-weight: bold; /* Ensure the headers are bold */
-        }
-    </style>
 </head>
 <body>
 
-<header>
+
+
+<div class="game-container">
+  <header>
     <nav class="navbar">
-        <div class="math-menu">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-        </div>
         <div class="nav-menu hide">
             <a href="login.html"><button id="login" class="mode-button">Login</button></a>
             <a href="beginner.html"><button id="begin" class="mode-button">Beginner</button></a>
@@ -63,8 +23,7 @@
         </div>
     </nav>
 </header>
-
-<div class="leaderboard-container">
+  <div class="leaderboard-container">
     <div class="leaderboard-header">Leaderboard</div>
     <div class="leaderboard-headers">
         <div class="leaderboard-item">
@@ -73,6 +32,7 @@
             <span class="score-header"><strong>Score</strong></span>
         </div>
     </div>
+  </div>
     <div id="leaderboard"></div>
 </div>
 <script src="leaderboard.js"></script>
