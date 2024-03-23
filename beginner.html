@@ -107,19 +107,51 @@
             font-family: "Lexend";
             font-weight: 100;
         }
-        /* Added margin to score display */
         .score-display {
-            margin-top: 20px; /* Adjust this value as needed */
+            margin-top: 20px; 
         }
 
-        /* Hide the target number initially */
         #challenge {
             display: none;
         }
+
+        .leaderboard {
+            font-size: 30px;
+            border-style: solid;
+            border-color: #808080;
+            border-width: 3px;
+            padding: 10px;
+            border-radius: 10px;
+            color: rgb(184, 184, 184); 
+            text-decoration: none;
+            animation: glow 2s infinite alternate; 
+            transition: color 0.1s; 
+            position: absolute;
+            top: 35%;
+            left: calc(1.5%);
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px grey; 
+            }
+            100% {
+                box-shadow: 0 0 20px grey; 
+            }
+        }
+
+        .leaderboard:hover {
+            color: white; 
+        }   
+
+
     </style>
 </head>
 <body>
 <div class="game-container">
+    <div class="header-right">
+        <a href="leaderboard.html" class="leaderboard">Leaderboard</a>
+    </div>
     <header>
         <nav class="navbar">
             <div class="math-menu">
