@@ -443,7 +443,6 @@ body {
 }
 
 .leaderboard-header {
-    font-family: 'Lexend', sans-serif;
     font-size: 24px;
     margin-bottom: 20px;
     color: #A3A3A3;
@@ -456,8 +455,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    padding: 10px ;
-    background-color: #414141;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
     transform: skewX(-10deg);
@@ -467,47 +465,49 @@ body {
     margin-right: auto;
 }
 
-.leaderboard-item-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transform: skewX(10deg);
-    width: 100%;
-    padding: 10px;
-}
-
-.leaderboard-item:hover {
-    background-color: #515151;
-}
-
 .rank, .username, .score {
     padding: 12px 15px;
     font-weight: bold;
-    color: #D1D1D1;
     font-size: 16px;
     text-align: center;
     border-radius: 5px;
-    width: 33%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: white; 
 }
 
 .leaderboard-headers .rank,
 .leaderboard-headers .username,
 .leaderboard-headers .score {
-    color: #A3A3A3;
     font-size: 18px;
-    padding: 12px ;
+    padding: 12px;
     background-color: transparent;
     border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.leaderboard-item{
+.leaderboard-item {
     gap: 12rem;
     
 }
 
+.leaderboard-item:nth-child(even) {
+    background-color: #3a3a3a2c; 
+}
+
+.leaderboard-item:nth-child(odd) {
+    background-color: #b5a7a7dc; 
+}
+
+
+.leaderboard-item:hover {
+    background-color: #37363693;
+}
+
+
+.leaderboard-item:nth-child(even):hover {
+    background-color: #b5a7a7dc; 
+    color: white; 
+}
+
+.leaderboard-item:nth-child(odd):hover {
+    background-color: #3a3a3a2c; 
+    color: white; 
+}
