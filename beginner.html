@@ -5,6 +5,7 @@
     <title>MixNMath Game</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
     <style>
@@ -60,6 +61,17 @@
                 transform: translate(-50%, 0);
             }
         }
+        @keyframes good-ani {
+    0% {
+        background-color: #111;
+    }
+    50% {
+        background-color: #90c465;
+    }
+    100% {
+        background-color: #111;
+    }
+}
 
         .question-mark-popup p {
             margin: 0;
@@ -75,7 +87,27 @@
         .bg-animation {
             animation: changeBackground 1s ease-in-out forwards;
         }
+        .good-anim {
+            animation: good-ani 1s;
+        }
+ 
 
+
+
+
+        @keyframes badAni {
+            0% {
+                background-color: #111;
+            }
+            50% {
+                background-color: #6f964f;
+            }
+            100% {
+                background-color: #111;
+            }
+
+        }
+        
         @keyframes changeBackground {
             0% {
                 background-color: #000;
