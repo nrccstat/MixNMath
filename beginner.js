@@ -65,7 +65,10 @@ function resetTimer() {
 
 function incrementScore() {
     score++;
-    updateScoreDisplay(); 
+    updateScoreDisplay();
+    confetti();
+    var ab = document.getElementById('expression');
+    ab.classList.add('good-anim');
 }
 
 function resetScore() {
@@ -80,13 +83,16 @@ function updateScoreDisplay() {
 
 function startGame() {
     document.body.classList.add('bg-animation');
-    score = 0; 
+    score = 1;
+
+ 
 
     setTimeout(function() {
         document.body.classList.remove('bg-animation');
     }, 1000);
 
     startTimer();
+
 }
 
 function enableFeatures() {
@@ -240,6 +246,8 @@ function checkAnswer() {
             clearExpression();
             incrementScore(); 
         } else {
+            var ab = document.getElementById('expression');
+            ab.classList.add('bad-anim');
             alert(`Close! Your expression evaluates to: ${evaluatedResult}, but the target was ${targetNumber}. Try again.`);
         }
     } catch (error) {
