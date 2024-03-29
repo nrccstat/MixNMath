@@ -208,6 +208,7 @@ body {
  border-width: 5px;
  transition: 0.2s;
  border-color: rgb(240, 255, 108);
+
 }
 
 .buttons-container {
@@ -317,6 +318,7 @@ body {
     margin-bottom: 10px;
 }
 
+
 .tim1:hover{
     color: #ff0000;
 }
@@ -425,4 +427,38 @@ body {
     cursor: pointer;
     font-size: 24px;
     z-index: 101;
+}
+
+
+@keyframes good-ani {
+    0% {
+        background-color: #111;
+    }
+    50% {
+        background-color: #90c465;
+    }
+    100% {
+        background-color: #111;
+    }
+}
+
+.good-anim {
+    animation: good-ani 1s;
+}
+
+
+@keyframes bad-ani {
+    0% {
+        background-color: #111;
+    }
+    50% {
+        background-color: #df9999;
+    }
+    100% {
+        background-color: #111;
+    }
+}
+
+.bad-anim {
+    animation: bad-ani 0.4s;
 }
