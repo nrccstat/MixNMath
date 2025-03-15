@@ -125,16 +125,8 @@ Please follow HTML, CSS, and JavaScript best practices and include comments.
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
-For questions or support, please contact [Your Name] at [your.email@example.com] or open an issue on the repository.
+For questions or support, please contact Narasimha at [naci@ad.unc.edu] or open an issue on the repository.
 
 ---
 
-### Notes for You
-- **Customization**: Replace `<repository-url>`, `[Your Name]`, and `[your.email@example.com]` with your details.
-- **Enhancement Suggestions**:
-  - Add a backend (e.g., Node.js, Flask) for user data persistence.
-  - Implement input validation and error messages.
-  - Enhance JavaScript with more complex math operations or game logic.
-- **File Verification**: Ensure all files from the image (e.g., `image(20).png`, `expert.js`) are included and functional.
-- **Server Setup**: If dynamic features are intended, test with a local server as suggested.
 
