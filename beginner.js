@@ -41,8 +41,8 @@ function startTimer() {
     document.getElementById("startButton").setAttribute("onclick", "resetTimer()");
 
     enableFeatures();
-    targetNumber = generateTargetNumber(); // Generate a new target number each time the game starts
-    updateTargetDisplay(); // Update the display with the new target number
+    targetNumber = generateTargetNumber(); 
+    updateTargetDisplay(); 
 }
 
 
