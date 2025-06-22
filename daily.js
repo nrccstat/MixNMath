@@ -170,15 +170,12 @@ document.addEventListener('keydown', handleKeyPress);
 
 
 function displayCongratsMessage() {
-    // Select all child elements of `.game-container` except `header`
     const gameContentElements = document.querySelectorAll('.game-container > *:not(header)');
 
-    // Hide these elements
     gameContentElements.forEach(element => {
         element.style.display = 'none';
     });
 
-    // Create a congratulatory message and append it directly under the navbar or as a part of the navbar, based on your preference
     const congratsElement = document.createElement('div');
     congratsElement.setAttribute('id', 'congrats-message');
     congratsElement.style.textAlign = 'center';
@@ -186,12 +183,10 @@ function displayCongratsMessage() {
     congratsElement.style.fontWeight = 'bold';
     congratsElement.innerHTML = 'Congratulations! You\'ve solved the daily problem!';
 
-    // Append the message to the game container, considering navbar should remain visible
     const navbar = document.querySelector('.navbar');
     if (navbar.nextSibling) {
         navbar.parentNode.insertBefore(congratsElement, navbar.nextSibling);
     } else {
-        // If there's no next sibling, append to the game container
         document.querySelector('.game-container').appendChild(congratsElement);
     }
 }
