@@ -16,7 +16,7 @@ function setupGame() {
 }
 
 function setupDailyMode() {
-    document.querySelector('.difficulty-buttons').style.display = 'none'; // Hide difficulty buttons
+    document.querySelector('.difficulty-buttons').style.display = 'none'; 
     updateTargetNumberAndDisplay();
 
     document.getElementById('challenge').style.display = 'block';
