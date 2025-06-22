@@ -55,8 +55,8 @@ function resetTimer() {
     document.getElementById("startButton").setAttribute("onclick", "startTimer()");
     timerStarted = false;
     removePauseButton();
-    resetScore() // Reset score
-    updateScoreDisplay(); // Update the score display to reflect the reset
+    resetScore();
+    updateScoreDisplay(); 
     targetNumber = generateTargetNumber();
     updateTargetDisplay();
     document.getElementById('challenge').innerText = ``;
