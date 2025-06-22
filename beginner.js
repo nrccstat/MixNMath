@@ -4,17 +4,17 @@ let usedDigits = new Set();
 let timerInterval;
 let timerStarted = false;
 let pauseButtonAdded = false;
-let score = 0; // New variable to track score
+let score = 0; 
 
 function startTimer() {
-    clearInterval(timerInterval); // Ensure any existing timer is cleared
+    clearInterval(timerInterval);
     timerStarted = true;
-    document.getElementById("challenge").style.display = "block"; // Ensure challenge is visible
-    document.getElementById("timer").style.display = "block"; // Make sure the timer is visible
+    document.getElementById("challenge").style.display = "block"; 
+    document.getElementById("timer").style.display = "block"; 
 
     let timerDisplay = document.getElementById("timer");
-    timerDisplay.textContent = "1:00:00"; // Set to one minute
-    let totalTime = 6000; // Set totalTime for one minute
+    timerDisplay.textContent = "1:00:00"; 
+    let totalTime = 6000; 
 
     timerInterval = setInterval(function () {
         totalTime--;
@@ -31,12 +31,12 @@ function startTimer() {
         } else {
             clearInterval(timerInterval);
             alert("Time's up! Resetting the game.");
-            resetTimer(); // Call resetTimer to reset the game
+            resetTimer(); 
         }
     }, 10);
 
     document.getElementById("startButton").textContent = "Reset Timer";
-    document.getElementById("startButton").style.backgroundColor = "#007bff"; // Blue color for reset button
+    document.getElementById("startButton").style.backgroundColor = "#007bff"; 
     document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #0267d4)";
     document.getElementById("startButton").setAttribute("onclick", "resetTimer()");
 
@@ -50,7 +50,7 @@ function resetTimer() {
     clearInterval(timerInterval);
     document.getElementById("timer").textContent = "1:00:00";
     document.getElementById("startButton").textContent = "Start Timer";
-    document.getElementById("startButton").style.backgroundColor = ""; // Reset button color
+    document.getElementById("startButton").style.backgroundColor = ""; 
     document.getElementById("startButton").style.filter = "drop-shadow(-5px 0px 0px #48804E)";
     document.getElementById("startButton").setAttribute("onclick", "startTimer()");
     timerStarted = false;
